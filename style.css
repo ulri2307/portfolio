@@ -1,0 +1,1371 @@
+/*----------------------------------------------------
+variabler, generelt & animation
+----------------------------------------------------*/
+
+/*--------variabler--------------*/
+
+:root {
+    --color-darkgrey: #383336;
+    --color-lightgrey: #7F7C7E;
+    --color-blue: #84A6D9;
+    --color-pink: #FEDBF2;
+
+}
+
+/*--------generelt--------------*/
+
+body {
+    margin: 0;
+    background-image: url(fotos/img-noise-361x370.png);
+    overflow-x: hidden;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+}
+
+img {
+    width: 100%;
+}
+
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 0 2vw 0;
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    font-family: 'Italianno', cursive;
+    font-weight: 100;
+    font-size: 1.9rem;
+    color: var(--color-darkgrey);
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: var(--color-lightgrey);
+}
+
+h4 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    color: black;
+}
+
+a:hover {
+    color: var(--color-blue);
+    cursor: pointer;
+}
+
+li a:hover {
+    color: var(--color-blue);
+}
+
+#burger_window.hidden li img {
+    width: 13vw;
+    height: 13vw;
+}
+
+p {
+    line-height: 1.3rem;
+}
+
+audio {
+    display: none;
+}
+
+/*--------animationer--------------*/
+
+.shadow {
+    filter: drop-shadow(8px 8px 10px gray);
+}
+
+.hover_zoom {
+    animation-name: hover_zoom_kf;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hover_zoom_kf {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.04);
+    }
+}
+
+.dropshadow {
+    animation-name: dropshadow_kf;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dropshadow_kf {
+    from {
+        filter: drop-shadow(0);
+    }
+
+    to {
+        filter: drop-shadow(8px 8px 10px gray);
+    }
+}
+
+
+/*----------------------------------------------------
+header/nav
+----------------------------------------------------*/
+
+/*navigation i toppen*/
+nav {
+    height: 10vw;
+    width: 96vw;
+    padding: 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 950;
+}
+
+#logo {
+    width: 13vw;
+    margin: 5vw 0 0 2vw;
+}
+
+
+/*--------burger_menu--------------*/
+
+/*selve menuen*/
+#burger_window {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 10vw 0 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: transform 0.5s ease-in;
+    z-index: 950;
+    position: fixed;
+    opacity: 0.97;
+}
+
+.hidden {
+    /*Skubber menuen ud til højre side*/
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+
+#burger_window li {
+    /*fjerner "prikkerne" ved listed*/
+    list-style: none;
+    margin: 7.5vw;
+    z-index: 950;
+}
+
+#burger_window a {
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 2.5rem;
+    z-index: 950;
+    font-family: 'Italianno', cursive;
+}
+
+/*logo i burgermenu, som henviser til index.html*/
+#burger_window img {
+    top: 10vw;
+    width: 20vw;
+    height: 20vw;
+    z-index: 950;
+}
+
+
+/*burger knappen*/
+.burger {
+    display: block;
+    z-index: 950;
+    cursor: pointer;
+    position: absolute;
+    left: 87vw;
+    position: fixed;
+}
+
+/*stregerne i burgermenuen*/
+.burger div {
+    width: 6vw;
+    height: 0.6vw;
+    background-color: var(--color-darkgrey);
+    margin: 0.8vw;
+    transition: all 0.3s ease;
+    z-index: 960;
+}
+
+
+/*animation der får stregerne i burgermenuen til at dreje om til et kryds*/
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-1vw, 0.2vw);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(46deg) translate(-1.64vw, -1vw);
+}
+
+
+
+/*----------------------------------------------------
+home page
+----------------------------------------------------*/
+
+#home .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 122.5vw;
+}
+
+#splash {
+    width: 80vw;
+    height: 85vw;
+    position: absolute;
+    left: 10.5vw;
+    top: 22vw;
+    transform: scaleX(-1) rotate(2.6deg);
+}
+
+#splash_back {
+    position: absolute;
+    top: 30vw;
+    width: 100vw;
+    height: 68vw;
+    background-image: url(fotos/infobox.png);
+    background-size: cover;
+    margin: 0;
+}
+
+#botton {
+    width: 9vw;
+    height: 10vw;
+    position: absolute;
+    top: 120vw;
+    left: 84vw;
+}
+
+.navn {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin: 0 0 5vw 5vw;
+}
+
+.navn h2 {
+    margin: 0;
+}
+
+.navn h3 {
+    margin: 0;
+}
+
+
+/*----------------------------------------------------
+Om - page
+----------------------------------------------------*/
+
+#om .sectionwrapper_1 {
+    background-image: url(fotos/infobox.png);
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#om h2 {
+    margin: 2vw 0 5vw;
+}
+
+#om .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+
+}
+
+.col_1 img {
+    width: 60vw;
+    align-self: center;
+}
+
+#om #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+
+/*----------------------------------------------------
+portfolio
+----------------------------------------------------*/
+
+#portfolio .sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    z-index: 900;
+    margin: 10vw 0 0 0;
+}
+
+.col_portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-basis: 200px;
+    flex-grow: 1;
+    max-width: 280px;
+    margin: 1rem;
+}
+
+.col_portfolio img:hover {
+    transform: scale(1.2);
+}
+
+#portfolio .splash_back {
+    position: absolute;
+    top: 30vw;
+    width: 100vw;
+    height: 68vw;
+    background-image: url(fotos/infobox.png);
+    background-size: cover;
+    margin: 0;
+    z-index: -1;
+}
+
+
+
+
+/*----------------------------------------------------
+webdesign
+----------------------------------------------------*/
+
+#webdesign .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#webdesign h2 {
+    margin: 6vw 0 0;
+}
+
+#webdesign .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#opgave {
+    align-self: center;
+}
+
+#opgave img:hover {
+    cursor: pointer;
+}
+
+#webdesign #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+
+}
+
+
+/*----------------------------------------------------
+animation
+----------------------------------------------------*/
+
+/*----------02.03 Animationsopgaven------------*/
+
+#animation_1 .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0;
+}
+
+#animation_1 h2 {
+    margin: 6vw 0 0;
+}
+
+#animation_1 .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#animation_1 #opgave {
+    align-self: center;
+}
+
+#animation_1 #opgave img:hover {
+    cursor: pointer;
+}
+
+
+/*skitser*/
+
+#animation_skitser {
+    margin: 0;
+}
+
+.skitser_sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10vw 0 0 0;
+}
+
+#animation_skitser h4 {
+    margin: 3vw 3vw 3vw 4vw;
+    color: var(--color-darkgrey);
+}
+
+#animation_skitser p {
+    margin: 0;
+    color: var(--color-lightgrey);
+}
+
+.trump_skitse {
+    flex-basis: 400px;
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 4vw;
+    text-align: center;
+}
+
+
+
+/*----------02.04 Projekt------------*/
+
+#animation_2 .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#animation_2 h2 {
+    margin: 6vw 0 0;
+}
+
+#animation_2 .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#opgave {
+    align-self: center;
+}
+
+#opgave img:hover {
+    cursor: pointer;
+}
+
+#animation_2 #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+/*asset liste*/
+
+#asset #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+/*----------------------------------------------------
+indhold
+----------------------------------------------------*/
+
+/*----------Interview // 03.01 Pilot projekt------------*/
+
+#indhold .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0;
+}
+
+#indhold h2 {
+    margin: 6vw 0 0;
+}
+
+#indhold .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+
+/*----------02.04 Projekt------------*/
+
+#redesign .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#redesign h2 {
+    margin: 0 0 3vw;
+}
+
+#redesign .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#opgave {
+    align-self: center;
+}
+
+#opgave img:hover {
+    cursor: pointer;
+}
+
+#redesign #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+#redesign .col_1 video {
+    margin: 0 0 4vw;
+    ;
+}
+
+/*----------------------------------------------------
+ux
+----------------------------------------------------*/
+
+#ux .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0;
+}
+
+#ux h2 {
+    margin: 6vw 0 0;
+}
+
+#ux .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#ux #opgave {
+    align-self: center;
+}
+
+#ux h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 10vw 0 0 0;
+    padding: 1.3rem;
+    background-color: var(--color-pink);
+    color: var(--color-darkgrey);
+    border-radius: 10px;
+}
+
+/*----------02.04 Projekt------------*/
+
+#ux_2 .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#ux_2 h2 {
+    margin: 6vw 0 0;
+}
+
+#proto {
+    align-self: center;
+}
+
+#ux_2 .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#ux_2 .col_1 img {
+    max-width: 230px;
+}
+
+/*KOOS*/
+
+#proto1 {
+    align-self: center;
+}
+
+/*prototype eksempler*/
+
+#ux_eksempler {
+    margin: 0;
+}
+
+.prototype_sectionwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10vw 0 0 0;
+}
+
+#ux_eksempler h4 {
+    margin: 3vw 3vw 3vw 4vw;
+    color: var(--color-darkgrey);
+}
+
+.prototype {
+    flex-basis: 400px;
+    flex-grow: 1;
+    max-width: 211px;
+    margin: 4vw;
+    text-align: center;
+}
+
+/*native app dokumentation*/
+
+#native_app_dok #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+/*----------native app------------*/
+#native_app .sectionwrapper_1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vw 2vw 0 2vw;
+    margin: 0 0 3vw;
+}
+
+#native_app h2 {
+    margin: 6vw 0 0;
+}
+
+#native_app .col_1 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 200px;
+    padding: 1.5rem 1.5rem;
+    justify-content: center;
+}
+
+#opgave {
+    align-self: center;
+}
+
+#native_app #botton {
+    width: 9vw;
+    height: 10vw;
+    position: inherit;
+    display: flex;
+    align-self: flex-end;
+    align-content: flex-start;
+    transform: rotate(180deg);
+    margin: 4vw;
+}
+
+
+/*----------------------------------------------------
+media
+----------------------------------------------------*/
+
+@media only screen and (min-width:501px) {
+
+    /*--------burger menu--------------*/
+
+    #logo {
+        display: none;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    #burger_window.hidden {
+        transform: translateX(0);
+        opacity: 1;
+        background-color: inherit;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        height: 10%;
+        width: 100vw;
+        padding: 0;
+    }
+
+    .nav_background {
+        background-image: url(fotos/infobox.png);
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 13%;
+        width: 100vw;
+    }
+
+    #burger_window li {
+        /*fjerner "prikkerne" ved listed*/
+        list-style: none;
+        margin: 2vw 6vw 0 4vw;
+    }
+
+    /*--------om page--------------*/
+
+    #om .col_1 {
+        margin: 8vw 0 0 0;
+    }
+}
+
+@media only screen and (min-width:600px) {
+
+    /*--------home page--------------*/
+
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 96.5vw;
+    }
+
+    #splash {
+        width: 65vw;
+        height: 70vw;
+        position: absolute;
+        left: 15.5vw;
+    }
+
+    #splash_back {
+        top: 30vw;
+        height: 54vw;
+    }
+
+    #botton {
+        width: 9vw;
+        height: 10vw;
+        position: absolute;
+        top: 95vw;
+        left: 84vw;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 30vw;
+        height: 54vw;
+    }
+}
+
+@media only screen and (min-width:700px) {
+
+    /*--------nav--------------*/
+
+    nav {
+        height: 3vw;
+    }
+
+    #burger_window.hidden li img {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------home page--------------*/
+
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 86vw;
+    }
+
+    #splash {
+        width: 65vw;
+        height: 70vw;
+        position: absolute;
+        left: 17.5vw;
+        top: 15vw;
+    }
+
+    #splash_back {
+        top: 20vw;
+        height: 57vw;
+    }
+
+    #botton {
+        width: 9vw;
+        height: 10vw;
+        position: absolute;
+        top: 80vw;
+        left: 84vw;
+    }
+
+    /*--------om page--------------*/
+
+    #om .col_1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 1.5rem 1.5rem;
+        width: 30vw;
+        margin: 4vw 0 0 0;
+
+    }
+
+    .col_1 img {
+        width: 35vw;
+        display: flex;
+    }
+
+    #om #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 20vw;
+        height: 57vw;
+    }
+
+    #portfolio .sectionwrapper {
+        margin: 1vw 0 0 0;
+    }
+
+    /*--------webdesign page--------------*/
+
+    #webdesign #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------animation page--------------*/
+
+    #animation_2 #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------indhold page--------------*/
+
+    #redesign #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------ux page--------------*/
+
+    #native_app #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------asset page--------------*/
+
+    #asset #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    /*--------native_app_dok page--------------*/
+
+    #native_app_dok #botton {
+        width: 7vw;
+        height: 7vw;
+    }
+
+}
+
+@media only screen and (min-width:800px) {
+
+    /*--------nav baggrundsbilled--------------*/
+
+    .nav_background {
+        height: 13%;
+    }
+
+    /*--------home page--------------*/
+
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 71vw;
+    }
+
+    #splash {
+        width: 55vw;
+        height: 60vw;
+        position: absolute;
+        left: 26vw;
+        top: 5vw;
+    }
+
+    #splash_back {
+        top: 10vw;
+        height: 48vw;
+    }
+
+    #botton {
+        width: 6vw;
+        height: 10vw;
+        position: absolute;
+        top: 67vw;
+        left: 84vw;
+    }
+
+    /*--------om page--------------*/
+
+    #om .col_1 {
+        margin: 4vw 0 0 0;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 20vw;
+        height: 53vw;
+    }
+
+    /*--------webdesign page--------------*/
+
+    #webdesign #botton {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    /*--------animation page--------------*/
+
+    .sectionwrapper_1 {
+        margin: 0;
+    }
+
+    .skitser_sectionwrapper {
+        margin: 0;
+    }
+
+    .trump_skitse {
+        margin: 2vw;
+    }
+
+    .skitse3 {
+        margin: 0;
+    }
+
+    #animation_2 #botton {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    /*--------indhold page--------------*/
+
+    #redesign #botton {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    /*--------asset page--------------*/
+
+    #asset #botton {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    /*--------native_app_dok page--------------*/
+
+    #native_app_dok #botton {
+        width: 6vw;
+        height: 6vw;
+    }
+
+}
+
+@media only screen and (min-width:900px) {
+
+    /*--------home page--------------*/
+
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 62vw;
+    }
+
+    #splash {
+        width: 55vw;
+        height: 60vw;
+        position: absolute;
+        left: 26vw;
+        top: 5vw;
+    }
+
+    #botton {
+        width: 6vw;
+        height: 10vw;
+        position: absolute;
+        top: 58vw;
+        left: 84vw;
+    }
+
+    /*--------om page--------------*/
+
+    #om .col_1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 1.5rem 1.5rem;
+        width: 30vw;
+        margin: 2vw 0 0 0;
+    }
+
+    .col_1 img {
+        width: 29vw;
+        display: flex;
+    }
+
+    #om #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 16vw;
+        height: 47vw;
+    }
+
+    /*--------webdesign page--------------*/
+
+    #webdesign #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------animation page--------------*/
+
+    #animation_2 #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------indhold page--------------*/
+
+    #redesign #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------ux page--------------*/
+
+    #native_app #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------asset page--------------*/
+
+    #asset #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------native_app_dok page--------------*/
+
+    #native_app_dok #botton {
+        width: 5vw;
+        height: 5vw;
+    }
+
+}
+
+@media only screen and (min-width:1100px) {
+
+    /*--------nav--------------*/
+
+    .nav_background {
+        height: 13%;
+    }
+
+    #burger_window.hidden li img {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    /*--------home page--------------*/
+
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 54vw;
+    }
+
+    #splash {
+        width: 45vw;
+        height: 50vw;
+        position: absolute;
+        left: 30vw;
+        top: 5vw;
+    }
+
+    .navn {
+        z-index: 950;
+    }
+
+    #splash_back {
+        top: 8vw;
+        height: 40vw;
+        left: 0;
+    }
+
+    #botton {
+        width: 6vw;
+        height: 10vw;
+        position: absolute;
+        top: 50.5vw;
+        left: 84vw;
+    }
+
+    /*--------om page--------------*/
+
+    #om .col_1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 0 1.5rem 1.5rem;
+        width: 30vw;
+        margin: 0;
+
+    }
+
+    .col_1 img {
+        width: 25vw;
+        display: flex;
+    }
+
+    #om #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 15vw;
+        height: 38vw;
+        left: 0;
+    }
+
+    .col_portfolio {
+        margin: 0 1rem;
+    }
+
+    /*--------webdesign page--------------*/
+
+    #webdesign #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------animation page--------------*/
+
+    #animation_2 #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------indhold page--------------*/
+
+    #redesign #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------ux page--------------*/
+
+    #native_app #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------asset page--------------*/
+
+    #asset #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    /*--------native_app_dok page--------------*/
+
+    #native_app_dok #botton {
+        width: 4vw;
+        height: 4vw;
+    }
+
+}
+
+@media only screen and (min-width:1250px) {
+
+    /*--------nav baggrundsbilled--------------*/
+
+    .nav_background {
+        height: 16%;
+    }
+
+    /*--------home page--------------*/
+    #home .sectionwrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 47.3vw;
+    }
+
+    #splash {
+        width: 45vw;
+        height: 50vw;
+        position: absolute;
+        left: 30vw;
+        top: 5vw;
+    }
+
+    .navn {
+        z-index: 950;
+    }
+
+    #splash_back {
+        top: 8vw;
+        height: 40vw;
+        left: 0;
+    }
+
+    #botton {
+        width: 5vw;
+        height: 10vw;
+        position: absolute;
+        top: 44.8vw;
+        left: 84vw;
+    }
+
+    /*--------portfolio page--------------*/
+
+    #portfolio .splash_back {
+        top: 14vw;
+        height: 35vw;
+        left: 0;
+    }
+
+    .col_portfolio {
+        margin: 0 1rem 4rem;
+    }
+
+}
